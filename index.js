@@ -12,6 +12,10 @@ app.get("/", (req, res) => {
 app.get("/courses", (req, res) => {
   res.send(courses);
 });
+app.get("/courses/:id", (req, res) => {
+  const course = courses.find((course) => req.params.id == course.id);
+  res.send(course);
+});
 
 app.listen(port, () => {
   console.log("test server listening on :", port);
